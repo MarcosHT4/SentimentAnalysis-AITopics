@@ -5,13 +5,9 @@ from fastapi import (
 )
 from schemas.execution import Execution
 from schemas.model_output import ModelOutput
-from schemas.star_rating import StarRatingList
-from schemas.star_rating import StarRating
 from schemas.score_output import ScoreOutput
 from config import get_settings
-from detector import HandsDetector
 import time
-from services.upload_file import UploadFileService
 from services.csv_filler import CSVFillerService
 from services.sentiment_service import SentimentService
 from services.score_conversion_service import ScoreConversionService
@@ -38,15 +34,8 @@ def get_score_conversion_service():
 @router.post("/sentiment")
 def analyze_sentiment(text:str = Body(...), csv_filler = Depends(get_csv_filler), sentiment = Depends(get_sentiment_service), score_conversion = Depends(get_score_conversion_service))-> ModelOutput:
     start = time.time()
-    star_rating_output = sentiment.predict(text)[0]
-    temp_star_rating_list = []
-    for item in star_rating_output:
-        label = item['label']
-        score = item['score']
-        star_rating = StarRating(label=label, score=score)
-        temp_star_rating_list.append(star_rating)
-    star_rating_list = StarRatingList(star_ratings=temp_star_rating_list)    
-
+    star_rating_list = sentiment.predict(text)
+        
     score = score_conversion.convert_star_rating_to_score(star_rating_list)
     label = score_conversion.map_score_to_sentiment(score)
 
