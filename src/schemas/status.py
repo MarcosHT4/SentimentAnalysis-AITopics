@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from config import get_settings
+from src.config import get_settings
 
 SETTINGS = get_settings()
 

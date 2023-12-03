@@ -3,7 +3,7 @@ from fastapi import (
     HTTPException
 )
 from fastapi.responses import Response
-from config import get_settings
+from src.config import get_settings
 import os
 
 router = APIRouter()

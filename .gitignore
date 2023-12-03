@@ -175,3 +175,6 @@ pyrightconfig.json
 
 outputs/predictions.csv
 # End of https://www.toptal.com/developers/gitignore/api/python
+
+src/models/spanish-sentiment-model
+src/models/es_core_news_md-3.7.0

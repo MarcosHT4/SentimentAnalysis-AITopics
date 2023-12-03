@@ -1,8 +1,8 @@
-from schemas.model_output import ModelOutput
+from src.schemas.model_output import ModelOutput
 import csv
 import time
 from fastapi import UploadFile
-from config import get_settings
+from src.config import get_settings
 import os
 
 SETTINGS = get_settings()

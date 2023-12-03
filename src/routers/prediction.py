@@ -3,14 +3,14 @@ from fastapi import (
     Body,
     Depends
 )
-from schemas.execution import Execution
-from schemas.model_output import ModelOutput
-from schemas.score_output import ScoreOutput
-from config import get_settings
+from src.schemas.execution import Execution
+from src.schemas.model_output import ModelOutput
+from src.schemas.score_output import ScoreOutput
+from src.config import get_settings
 import time
-from services.csv_filler import CSVFillerService
-from services.sentiment_service import SentimentService
-from services.score_conversion_service import ScoreConversionService
+from src.services.csv_filler import CSVFillerService
+from src.services.sentiment_service import SentimentService
+from src.services.score_conversion_service import ScoreConversionService
 from functools import cache
 
 router = APIRouter()

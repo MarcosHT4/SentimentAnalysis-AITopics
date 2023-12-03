@@ -1,4 +1,4 @@
-from schemas.star_rating import StarRatingList
+from src.schemas.star_rating import StarRatingList
 class ScoreConversionService:
     def convert_star_rating_to_score(self, star_rating: StarRatingList) -> float:
         star_mapping = {

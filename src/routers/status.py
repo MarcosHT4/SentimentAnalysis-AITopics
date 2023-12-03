@@ -1,7 +1,7 @@
 from fastapi import (
     APIRouter,
 )
-from schemas.status import Status
+from src.schemas.status import Status
 router = APIRouter()
 
 @router.get("/status")

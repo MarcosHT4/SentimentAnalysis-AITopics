@@ -1,0 +1,13 @@
+Texto,N�mero de car�cteres en el texto,Predicci�n,Puntaje,Fecha y Hora,Tiempo de ejecuci�n,Modelo,Versi�n de la API
+Eres una muy mala persona,25,Muy Negativo,-0.8547018689569086,2023-12-01 21:16:39,0.4396994113922119,Spanish Sentiment Model - Karina Aquino,0.0.1
+"La comida est� bien, pero el servicio es p�simo",47,Poco Negativo,-0.32135263457894325,2023-12-01 21:18:37,0.042720794677734375,Spanish Sentiment Model - Karina Aquino,0.0.1
+Me da bastante igual,20,Neutral,-0.08848511427640915,2023-12-01 21:18:53,0.04658651351928711,Spanish Sentiment Model - Karina Aquino,0.0.1
+Deber�as mejorar tu actitud,27,Poco Positivo,0.30746228247880936,2023-12-01 21:19:11,0.03930306434631348,Spanish Sentiment Model - Karina Aquino,0.0.1
+Este restaurante est� limpio,28,Positivo,0.5586010850965977,2023-12-01 21:19:44,0.03400564193725586,Spanish Sentiment Model - Karina Aquino,0.0.1
+Eres una persona muy agradable,30,Muy Positivo,0.9190091151976958,2023-12-01 21:20:04,0.03876852989196777,Spanish Sentiment Model - Karina Aquino,0.0.1
+Eres una persona agradable,26,Muy Positivo,0.8352304734289646,2023-12-01 22:04:28,0.48763465881347656,Spanish Sentiment Model - Karina Aquino,0.0.1
+No me pareces una buena persona,31,Neutral,-0.16916656866669655,2023-12-02 12:52:15,0.454831600189209,Spanish Sentiment Model - Karina Aquino,0.0.1
+Eres una muy mala persona,25,Muy Negativo,-0.8547018689569086,2023-12-02 12:52:31,0.039940834045410156,Spanish Sentiment Model - Karina Aquino,0.0.1
+Eres la mejor persona que conozco,33,Muy Positivo,0.8420397883746773,2023-12-02 16:09:12,0.6247608661651611,Spanish Sentiment Model - Karina Aquino,0.0.1
+Eres una muy mala persona,25,Muy Negativo,-0.8547018689569086,2023-12-02 16:09:46,0.07780098915100098,Spanish Sentiment Model - Karina Aquino,0.0.1
+Me das igual,12,Neutral,-0.01674983650445938,2023-12-02 18:25:33,0.4744594097137451,Spanish Sentiment Model - Karina Aquino,0.0.1

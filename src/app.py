@@ -1,9 +1,11 @@
 from fastapi import FastAPI
-from config import get_settings
-from routers import (
+from src.config import get_settings
+from src.routers import (
     status,
     prediction,
-    reports
+    reports,
+    analysis,
+    gptanalysis
 )
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -25,6 +27,8 @@ app.add_middleware(
 app.include_router(status.router)
 app.include_router(prediction.router)
 app.include_router(reports.router)
+app.include_router(analysis.router)
+app.include_router(gptanalysis.router)
 
 
 if __name__ == "__main__":
