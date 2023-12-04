@@ -1,9 +1,12 @@
 from transformers import pipeline
 from src.schemas.star_rating import StarRating
 from src.schemas.star_rating import StarRatingList
+from src.config import get_settings
+
+SETTINGS = get_settings()
 class SentimentService:
     def __init__(self) -> None:
-        self.pipe = pipeline("text-classification", model="./src/models/spanish-sentiment-model", top_k=None)
+        self.pipe = pipeline("text-classification", model=SETTINGS.models_versions[1], top_k=None)
     def predict(self, text:str) -> StarRatingList:
         result = self.pipe(text)[0]
         temp_star_rating_list = []

@@ -11,12 +11,14 @@ from src.services.text_analysis_service import TextAnalysisService
 from src.services.sentiment_service import SentimentService
 from src.services.score_conversion_service import ScoreConversionService
 from src.config import get_settings
+from src.services.csv_filler import CSVFillerService
 import time
 from functools import cache
 
 text_analysis_service = TextAnalysisService()
 sentiment_service = SentimentService()
 score_conversion_service = ScoreConversionService()
+csv_filler_service = CSVFillerService()
 SETTINGS = get_settings()
 
 @cache
@@ -31,11 +33,15 @@ def get_sentiment_service():
 def get_score_conversion_service():
     return score_conversion_service
 
+@cache
+def get_csv_filler_service():
+    return csv_filler_service
+
 
 router = APIRouter()
 
 @router.post("/analysis")
-def analyze_text(text:str = Body(...), text_analysis = Depends(get_text_analysis_service), sentiment = Depends(get_sentiment_service), score_conversion = Depends(get_score_conversion_service)) -> AnalysisAndSentimentOutput:
+def analyze_text(text:str = Body(...), text_analysis = Depends(get_text_analysis_service), sentiment = Depends(get_sentiment_service), score_conversion = Depends(get_score_conversion_service), csv_filler = Depends(get_csv_filler_service)) -> AnalysisAndSentimentOutput:
     start_time = time.time()
     pos = text_analysis.extract_part_of_speech(text)
     ne = text_analysis.extract_named_entities(text)
@@ -47,7 +53,7 @@ def analyze_text(text:str = Body(...), text_analysis = Depends(get_text_analysis
 
     score_output = ScoreOutput(score=score, label=label)
     execution = Execution(time_in_seconds=time.time()-start_time, original_text=text, text_char_length=len(text), version_number=SETTINGS.revision)
-
+    csv_filler_service.add_csv_prediction_sentiment_analysis(score_output, execution,False,analysis_output)
     analysis_and_sentiment_output = AnalysisAndSentimentOutput(analysis_output=analysis_output, score_output=score_output, execution=execution)
 
     return analysis_and_sentiment_output

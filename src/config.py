@@ -5,15 +5,17 @@ class Settings(BaseSettings):
     api_name:str = "Sentiment Analysis Service"
     revision:str = "0.0.1"
     models_names:list[str] = [
-        "Spanish Core News Small - Spacy",
+        "Spanish Core News Medium - Spacy",
         "Spanish Sentiment Model - Karina Aquino",
-        "GPT-4 - LangChain"
+        "GPT-4 - LangChain",
+        "Text Embedding ADA-002 - LangChain"	
     ]
     csv_path:str = "src/outputs/predictions.csv"
     models_versions:list[str] = [
         "src/models/es_core_news_md-3.7.0",
-        "",
-        "gpt-4"
+        "./src/models/spanish-sentiment-model",
+        "gpt-4",
+        "text-embedding-ada-002"
     ]
 
 class SecretSettings(BaseSettings):

@@ -43,7 +43,7 @@ def analyze_sentiment(text:str = Body(...), csv_filler = Depends(get_csv_filler)
     execution = Execution(time_in_seconds=time.time()-start, original_text=text, text_char_length=len(text), version_number=SETTINGS.revision)
 
     model_output = SentimentModelOutput(execution=execution, score_output=score_output)
-    csv_filler.add_csv_prediction_sentiment_analysis(model_output)
+    csv_filler.add_csv_prediction_sentiment_analysis(score_output, execution)
     return model_output
 
 

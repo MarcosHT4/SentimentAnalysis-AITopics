@@ -8,4 +8,5 @@ numpy
 spacy
 openai
 langchain
+tiktoken
 transformers
