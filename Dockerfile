@@ -1,5 +1,7 @@
 FROM python:3.11
 ENV PORT 8000
+ARG OPENAI_KEY
+ENV OPENAI_KEY=$OPENAI_KEY
 
 COPY requirements.txt /
 RUN apt-get update && apt-get install git-all git-lfs -y

@@ -4,7 +4,7 @@ from fastapi import (
     Depends
 )
 from src.schemas.execution import Execution
-from src.schemas.model_output import ModelOutput
+from src.schemas.sentiment_model_output import SentimentModelOutput
 from src.schemas.score_output import ScoreOutput
 from src.config import get_settings
 import time
@@ -32,7 +32,7 @@ def get_score_conversion_service():
 
 
 @router.post("/sentiment")
-def analyze_sentiment(text:str = Body(...), csv_filler = Depends(get_csv_filler), sentiment = Depends(get_sentiment_service), score_conversion = Depends(get_score_conversion_service))-> ModelOutput:
+def analyze_sentiment(text:str = Body(...), csv_filler = Depends(get_csv_filler), sentiment = Depends(get_sentiment_service), score_conversion = Depends(get_score_conversion_service))-> SentimentModelOutput:
     start = time.time()
     star_rating_list = sentiment.predict(text)
         
@@ -42,7 +42,7 @@ def analyze_sentiment(text:str = Body(...), csv_filler = Depends(get_csv_filler)
     score_output = ScoreOutput(score=score, label=label)
     execution = Execution(time_in_seconds=time.time()-start, original_text=text, text_char_length=len(text), version_number=SETTINGS.revision)
 
-    model_output = ModelOutput(execution=execution, score_output=score_output)
+    model_output = SentimentModelOutput(execution=execution, score_output=score_output)
     csv_filler.add_csv_prediction_sentiment_analysis(model_output)
     return model_output
 

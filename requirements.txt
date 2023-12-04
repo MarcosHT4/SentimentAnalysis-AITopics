@@ -6,4 +6,6 @@ python-multipart
 python-dotenv
 numpy
 spacy
+openai
+langchain
 transformers

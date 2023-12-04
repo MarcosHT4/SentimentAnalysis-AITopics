@@ -1,4 +1,4 @@
-from src.schemas.model_output import ModelOutput
+from src.schemas.sentiment_model_output import SentimentModelOutput
 import csv
 import time
 from fastapi import UploadFile
@@ -8,7 +8,7 @@ import os
 SETTINGS = get_settings()
 
 class CSVFillerService:
-    def add_csv_prediction_sentiment_analysis(self,modelOutput:ModelOutput) -> None:
+    def add_csv_prediction_sentiment_analysis(self,modelOutput:SentimentModelOutput) -> None:
         text = modelOutput.execution.original_text
         modelName = SETTINGS.models_names[1]
         apiRevision = SETTINGS.revision
