@@ -56,6 +56,9 @@ El modelo de Spanish Sentiment Analysis, se debe clonar de la siguiente direcci√
 ```
 git clone https://huggingface.co/karina-aquino/spanish-sentiment-model
 ```
+
+OJO, se debe tener habilitado el LFS de Git, para poder clonar el modelo.
+
 Y la carpeta clonada, es decir `spanish-sentiment-model`, se debe mover a la carpeta `models`, que se encuentra en la carpeta src del proyecto.
 
 El modelo de Spanish Core News Medium, se debe descargar de la siguiente direcci√≥n:
