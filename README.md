@@ -48,6 +48,50 @@ docker-compose up
 
 Este comando, creará un contenedor de Docker, sin antes crear la imagen Docker, basada en el archivo `Dockerfile`, el cual descargará todas las dependencias necesarias para ejecutar la API, y posteriormente, ejecutará la API en el puerto 8000.
 
+### Instalación y ejecución sin Docker 🐳
+
+ATECIÓN: Este proceso de instalación y ejecución, no es recomendado, ya que se debe instalar cada una de las dependencias de forma manual, y además, se deben descargar los modelos de forma manual, lo cual puede tomar mucho tiempo.
+
+El modelo de Spanish Sentiment Analysis, se debe clonar de la siguiente dirección:
+```
+git clone https://huggingface.co/karina-aquino/spanish-sentiment-model
+```
+Y la carpeta clonada, es decir `spanish-sentiment-model`, se debe mover a la carpeta `models`, que se encuentra en la carpeta src del proyecto.
+
+El modelo de Spanish Core News Medium, se debe descargar de la siguiente dirección:
+```
+https://github.com/explosion/spacy-models/releases/download/es_core_news_md-3.7.0/es_core_news_md-3.7.0.tar.gz
+```
+Una vez descargado, descomprimir el archivo, lo cual dejará una carpeta llamada `es_core_news_md-3.7.0`. En esa carpeta, entrar a la carpeta `es_core_news_md`, y finalmente, copiar la carpeta `es_core_news_md-3.7.0` a la carpeta `models`, que se encuentra en la carpeta src del proyecto.
+
+Después, se debe tener Python 3.10 o superior instalado, y posteriormente instalar las dependencias del proyecto:
+
+```
+fastapi
+uvicorn
+pydantic
+pydantic-settings
+python-multipart
+python-dotenv
+numpy
+spacy
+openai
+langchain
+tiktoken
+transformers
+```
+
+Además, de forma separada, se debe ejecutar el siguiente comando:
+
+```
+pip3 install torch==2.1.1+cpu torchvision==0.16.1+cpu torchaudio==2.1.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
+```
+Finalmente, para ejecutar la API, se debe abrir una terminal en la raiz del proyecto, y ejecutar el siguiente comando:
+
+```
+uvicorn src.app:app --reload
+```
+
 ## Extra: Aplicación web 📦
 
 Para poder ejecutar la aplicación web, se debe tener instalado Node.js 14 o superior. Posteriormente, se debe abrir la carpeta `frontend` en una terminal, y ejecutar el siguiente comando:
